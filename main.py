@@ -1,5 +1,4 @@
-from models import Player, Action, Game
-
+from models import Player, Action, Game, RandomEvent
 def main():
     player = Player("Бомж")
 
@@ -19,11 +18,16 @@ def main():
         ]
     }
 
+    random_events = [
+        RandomEvent('Кто-то угостил тебя едой:', happiness=10)
+    ]
+
     game = Game(player, categories)
 
     while player.is_alive():
         game.show_main_menu()
         choice = int(input("ваш выбор: "))
+        game.get_chance(random_events)
         if not game.choose_category(choice):
             break
 
