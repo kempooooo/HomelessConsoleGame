@@ -3,6 +3,8 @@ def main():
     player = Player("Бомж")
 
     categories = {
+        
+
         "Работа": [
             Action("собирать бутылки", money=20, happiness=-1, health=-1),
             Action("мыть машины", money=50, happiness=-2, health=-2),
@@ -15,11 +17,17 @@ def main():
         "Здоровье": [
             Action("поспать на лавочке", health=10, happiness=2),
             Action("сходить к врачу", money=-30, health=20),
+        ],
+       "Жилье": [
+            Action("Арендовать комнату", home='Арендует комнату')
+
         ]
     }
 
     random_events = [
-        RandomEvent('Кто-то угостил тебя едой:', happiness=10)
+        RandomEvent('Кто-то угостил тебя едой:', happiness=10),
+        RandomEvent('Потерял кошелёк', money=-50, happiness=-5),
+        RandomEvent('Нашёл монетку', money=10)
     ]
 
     game = Game(player, categories)

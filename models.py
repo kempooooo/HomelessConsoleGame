@@ -16,21 +16,24 @@ class Player:
 
 
 class Action:
-    def __init__(self, name, money=0, happiness=0, health=0):
+    def __init__(self, name, money=0, happiness=0, health=0, home=''):
         self.name = name
         self.money = money
         self.happiness = happiness
         self.health = health
+        self.home = home
 
     def perform(self, player: Player):
         player.money += self.money
         player.happiness += self.happiness
         player.health += self.health
+        player.home = self.home
         print(f"\n➡ {player.name} выбрал: {self.name}")
         print(f"изменения: "
               f"{'+' if self.money >= 0 else ''}{self.money}💰, "
               f"{'+' if self.happiness >= 0 else ''}{self.happiness}🙂, "
               f"{'+' if self.health >= 0 else ''}{self.health}❤️")
+            
 
 
 class RandomEvent:
